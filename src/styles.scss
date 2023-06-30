@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+*{
+    
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f0f0f0  !important;
+}
+
+input[type="text"], input[type="password"], input[type="select"], input[type="number"], input[type="date"], input[type="textarea"], input[type="radio"], input[type="email"], input[type="file"], textarea.form-control, .form-select {
+	padding: 8px 19px !important;
+	box-sizing: border-box !important;
+	border: 1px solid rgb(183, 183, 183) !important;
+	border-radius: 4px !important;
+
+}
+.form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"], .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"] {
+	padding-right:inherit !important;
+  border-color: #dc3545 !important;
+	background-image: inherit !important;
+	background-position: right .75rem center,center right 2.25rem;
+	background-size: 16px 12px,calc(.75em + .375rem) calc(.75em + .375rem);
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+	border-color: #dc3545 !important;
+	padding-right: calc(1.5em + .75rem) !important;
+	background-image: inherit !important;
+	background-repeat: no-repeat;
+	background-position: right calc(.375em + .1875rem) center;
+	background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+.responsive-text {
+  font-size: calc(0.575rem + 1.4vw);
+}
+
+label {
+  text-transform: uppercase;
+  -webkit-box-align: center;
+  align-items: center;
+  display: inline-flex;
+  margin-right: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0 !important;
+}

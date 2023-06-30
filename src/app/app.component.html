@@ -1,25 +1,121 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <div formGroupName="personalInfo">
-    <label>Name</label>
-    <input type="text" formControlName="name" />
+<div class="container">
+  <div class="box1">
+    <form [formGroup]="recipeForm" class="form-container">
+      <h4 class="add-header">Reactive Form PlayGround</h4>
+      <div formGroupName="personalInfo">
+        <fieldset class="border rounded p-2">
+          <legend class="float-none w-auto p-2">personalInfo</legend>
+          <div class="row">
+            <div class="col-12">
+              <label>Name</label>
+              <input type="text" class="form-control" id="name" placeholder="enter your Name" formControlName="firstname" />
+            </div>
+            <div class="col-12">
+              <label>Lastname</label>
+              <input type="text" id="last-name" class="form-control" placeholder="enter your Lastname"
+                formControlName="Lastname" />
+            </div>
+            <div class="col-12">
+              <label>Nickname</label>
+              <input type="text" class="form-control" placeholder="enter your Nickname" formControlName="Nickname" />
+            </div>
+            <div class="col-12">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="enter your email" formControlName="email" />
+            </div>
+            <div class="col-12 col-md-5">
+              <label>Year of birth</label>
+              <select class="form-select" formControlName="year">
+                <option value="">--select year--</option>
+                <option *ngFor="let year of years" [value]="year">{{year}}</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-7">
+              <label>Passport Number</label>
+              <input type="text" class="form-control" formControlName="Passport" placeholder="enter your Passport No" />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div formGroupName="address">
+        <fieldset class="border rounded p-2">
+          <legend class="float-none w-auto p-2">address</legend>
+          <div class="row">
+            <div class="col-12">
+              <label>Street</label>
+              <input type="text" class="form-control" placeholder="enter your street" formControlName="street" />
+            </div>
+            <div class="col-12">
+              <label>City</label>
+              <input type="text" class="form-control" placeholder="enter your city" formControlName="city" />
+    
+            </div>
+            <div class="col-12">
+              <label>State</label>
+              <input type="text" class="form-control" placeholder="enter your state" formControlName="state" />
+    
+            </div>
+            <div class="col-12">
+    
+              <label>Post Code</label>
+              <input type="text" class="form-control" placeholder="enter your Post Code" formControlName="PostCode" />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    
+    
+      <div>
+        <fieldset class="border rounded p-2" formArrayName="reciepe">
+          <legend class="float-none w-auto p-2">Phones</legend>
+         <button class="btn btn-success btnadd" (click)=addItem()>+</button>
+          <div *ngFor="let User of itemControls.controls;  let i=index">
+              <div [formGroupName]="i" class="recipe-container">
+                <div class="row">
+                  <label>Select Contry</label>
+                <div class="col-12 col-md-4">
+                    <select class="form-select" formControlName="PhoneSelect">
+                    <option value="">--select--</option>
+                    <option value="0">INR</option>
+                    <option value="1">USA</option>
+                    <option value="2">UK</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-6">
+                            <input formControlName="phoneNumber" class="form-control" placeholder="Enter your Number">
+                </div>
+                <div class="col-12 col-md-2">
+                         <button class="btn btn-danger btnsubs" (click)=removeItem(i)>-</button>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div formGroupName="skill">
+        <fieldset class="border rounded p-2">
+          <legend class="float-none w-auto p-2">User Skills</legend>
+          <div>
+            <span><input type="checkbox" formControlName="Angular" name="" id="">&nbsp;</span><span>Angular</span>
+          </div>
+          <div>
+            <span><input type="checkbox" formControlName="Typescript" name="" id="">&nbsp;</span><span>Typescript</span>
+          </div>
+          <div>
+            <span><input type="checkbox" formControlName="Git" name="" id="">&nbsp;</span><span>Git</span>
+          </div>
+          <div>
+            <span><input type="checkbox" formControlName="Docker" name="" id="">&nbsp;</span><span>Docker</span>
+          </div>
 
-    <label>Email</label>
-    <input type="email" formControlName="email" />
+
+        </fieldset>
+      </div>
+      <div class="row px-2 mt-1">
+        <button (click)="submitForm()" class="btn btn-warning">submit</button>
+
+      </div>
+    </form>
   </div>
-
-  <div formGroupName="address">
-    <label>Street</label>
-    <input type="text" formControlName="street" />
-
-    <label>City</label>
-    <input type="text" formControlName="city" />
-
-    <label>State</label>
-    <input type="text" formControlName="state" />
-
-    <label>Zip Code</label>
-    <input type="text" formControlName="zipCode" />
-  </div>
-
-  <button type="submit">Submit</button>
-</form>
+</div>
